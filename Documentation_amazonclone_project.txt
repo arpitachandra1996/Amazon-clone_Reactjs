@@ -1,0 +1,140 @@
+In this article I will go through in depth about the project using React JS in details. In this project Firebase is used for Authentication process also Html ,CSS, React js used.
+For this project at first react need to install , to install react type the following code in the vs code terminal npx create-react-app amazon-clone. Inside the project file type the code npm start.
+
+Since React is single page page application, it does not support multiple routes by default . so, there is a package named react-router-dom, which allows us to create routes for our react project.
+Create routes for our React project. In terminal enter following command to install react-route-dom.
+
+
+Go to home.js 
+
+   Home page of Amazon.
+   This is the main page which users can see when they visit Amazon.
+   This page includes different items such as videos, books, mobile, tablet and game consoles etc.
+   This page is divided into different sections like latest electronics, the books corner,
+   movies corner etc. 
+
+
+
+app.js
+
+This class is a React component that creates the application. The App.js file serves as the root component of the application. It renders the Header and Home components, as well as other components such as Checkout, Login, Payment, and Orders.
+ It also handles state and authentication.
+The App.js class provides a router for the application using the react-router-dom. This allows different components of the application to be rendered depending on the URL. 
+The App.js file also handles authentication using the Firebase library. The auth.onAuthStateChanged() method checks the authentication state of the user when the application is loaded and updates the state accordingly.
+All of the components used in App.js are exported from their respective files, allowing them to be used in other components. For example, the Login component is imported and then used in the Route component. 
+Finally, the App.js class is responsible for setting any necessary state and dispatching it when necessary. This allows component to access and change the state if necessary.
+
+
+
+header.js
+
+This class represents and handles the Header implementations in Amazon eCommerce website.
+It consists of a nav bar with various links to different sections in Amazon. There is also a search bar in the header from where users can search various products.
+Finally, the class also has a Shopping Cart icon, which displays the number of items currently in the user's basket.
+The class also handles user authentication, with a Login/Sign Out button. When the user clicks the Login/Sign Out button, they will be taken to the appropriate page depending on their current status. 
+Overall, this class allows users login/sign out, and view their basket.
+
+
+
+
+login.js
+
+This class provides functionality for users to sign in to an Amazon account or create one.
+ It contains two functions, signIn() and register(), which take in the email and password fields that the user has entered,
+ in addition to event variables, and use those parameters to sign into an existing account, or create a new one. 
+Finally, it contains a Link to the home page, along with an image of the Amazon logo.
+
+This is a class for the Login component of an online store application. This component is responsible for providing an interface for users to log in to their account to access the store's services.
+The Login class contains several methods that are used to handle the authentication of a user, such as a signIn method that accepts an email and password to authenticate a user, and a register method that creates an account for a user who does not yet have an existing account.
+The Login class also contains state variables that store the user's email address and password for authentication purposes.
+The Login class also contains a useNavigate() function that allows the user to navigate to a different component in the application depending on the action they take, such as returning to the home page if they successfully log in.
+Finally, the Login class also contains a render() method which is responsible for displaying the interface to the user, as well as the necessary functionality for them to be able to log in.
+ This includes an input field for the user's email, a field for the user's password, and a submit button to submit the credentials and log the user in.
+
+
+
+Reducer.js
+
+This class is used to create the Redux data layer. It contains the initial state, a selector to get the basket total, and the reducer with different cases to add to the basket, empty the basket, remove from the basket and set the user. 
+The initial state has an empty array value for the ‘basket’ and ‘user’ variables set to null.
+The selector helps to calculate the total price of items in the basket.
+The reducer is an integral part of this Redux class, with different ‘case’ statements that handle user intent such as ADD_TO_BASKET, REMOVE_FROM_BASKET. 
+Finally, the default returns the state if none of the conditions within the switch statement is true.
+
+
+
+
+CheckOut.js
+
+Description:
+This class renders a checkout page which shoows the checkout products to the user.
+Components:
+<Subtotal />: A component which contains subtotal of the total basket products.
+<CheckoutProduct />: This component is mapping the items contained in the basket.
+Methods:
+FinalProducts(): This method is mapping the cart items contained in basket.
+Styles:
+It uses Checkout.css for styling.
+
+
+
+CheckOutProduct.js
+
+This class is designed to display each product within the Shopping basket. It contains props for each item being purchased. 
+
+props:
+id: a unique id provided for the particular item 
+title: Title of the item 
+image: The image of the item 
+price: Cost of the item 
+rating: Number rating of the item 
+
+This class also contains an onClick event handler to remove items from the shopping basket, called 'removeFromBasket'. This funciton activates the dispatch of action type 'REMOVE_FROM_BASKET'. 
+
+The render() method displays the componenent in a formatted div and renders img, title, price, rating and additional buttons. 
+
+Usage: 
+<CheckoutProduct 
+  id={id}
+  title={title}
+  image={image}
+  price={price}
+  rating={rating} />
+
+
+
+Subtotal.js
+
+  this Subtotal class is a functional component based on react.
+  It returns a div element which contains a CurrencyFormat component which formats the currency to be displayed 
+  and also contains a button to redirect the user to checkout page.
+  The class also uses useStateValue hook and getBasketTotal function to calculate and to manage global state respectively.
+
+
+
+Product.js
+
+This class is an example of the Product component in an E-Commerce shop designed using React components. 
+In this component, specified details such as a product title, image, price, and rating are passed into the component via props. 
+The component also contains a button that is used to add the product onto the user's basket.
+ The component is written using React's hook system to pull the user's basket from the data layer using useStateValue and pass it into the component as a variable.
+ The component then uses an onClick method to dispatch the item to the basket.
+
+
+
+
+Firebase.js
+
+This class is used to initialize Firebase.
+The auth is used to authenticate user.
+
+
+
+StateProvider.js
+
+This class is used to create a state context for React components. It is used to store, read, and update the data in the context for passing it around a React application. 
+The class has three main parts: 
+
+1. StateContext: This is the object created from the createContext() method. It is the place where the data is stored. 
+2. StateProvider: This is a function that takes the data (reducer, initialState and children as arguments) and wraps the React component. It provides the data to our application. 
+3. useStateValue: This is a function that is used to pull the inofrmation from the data layer.
