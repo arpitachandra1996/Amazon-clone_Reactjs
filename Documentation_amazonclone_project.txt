@@ -4,6 +4,8 @@ For this project at first react need to install , to install react type the foll
 Since React is single page page application, it does not support multiple routes by default . so, there is a package named react-router-dom, which allows us to create routes for our react project.
 Create routes for our React project. In terminal enter following command to install react-route-dom.
 
+After opening the default browser page type ' /login ' after localhost... to open login page ,after that set email and password to create amazon account and start shoppin. sign out button will logout the user & after re write the previous email and password user can log in to the account.
+
 
 Go to home.js 
 
